@@ -26,17 +26,14 @@ def part_two():
     with open(os.path.join("inputs", "2.txt")) as f:
         reports = [list(map(int, line.split())) for line in f]
 
-    report_count = 0
-    for report in reports:
-        # lazy: use a permutation of the report
-        for i in range(len(report)):
-            permutation = report[:i] + report[i + 1 :]
-
-            if invalid_report(permutation):
-                continue
-
-            report_count += 1
-            break
+    report_count = sum(
+        any(
+            # lazy: use a permutation of the report
+            not invalid_report(report[:i] + report[i + 1 :])
+            for i in range(len(report))
+        )
+        for report in reports
+    )
 
     print(report_count)
 

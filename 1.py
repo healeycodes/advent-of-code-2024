@@ -2,6 +2,7 @@ from collections import Counter
 import heapq
 import os
 
+
 def part_one():
     left = []
     right = []
@@ -13,11 +14,13 @@ def part_one():
 
     sum_of_distance_between_smallest = 0
     while left and right:
-        sum_of_distance_between_smallest += abs(heapq.heappop(right) - heapq.heappop(left))
+        sum_of_distance_between_smallest += abs(
+            heapq.heappop(right) - heapq.heappop(left)
+        )
     print(sum_of_distance_between_smallest)
 
-part_one()
 
+part_one()
 
 
 def part_two():
@@ -33,5 +36,6 @@ def part_two():
     for num in left:
         similarity_score += num * right[num]
     print(similarity_score)
+
 
 part_two()
