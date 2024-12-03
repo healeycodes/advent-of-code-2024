@@ -3,7 +3,6 @@ import re
 
 
 def part_one():
-    program = ""
     with open(os.path.join("inputs", "3.txt")) as f:
         program = f.read()
 
